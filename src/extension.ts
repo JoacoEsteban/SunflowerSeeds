@@ -1,27 +1,78 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-		console.log('Congratulations, your extension "sunflowerseeds" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World!');
+	console.log('Congratulations, your extension "sunflowerseeds" is now active!');
+	
+	
+	let disposable = vscode.commands.registerCommand('extension.praiseTheSun', () => 
+	{
+		
+		//get configs
+		
+		
+		//get date
+		
+		
+		enable();	
+		
+		
+		//set interval
+		
+		
+		
+		
+		
+		
+		vscode.window.showInformationMessage('Praise the Sun!');
 	});
-
+	
+	vscode.commands.registerCommand('extension.showRemainingTime', () => 
+	{
+		vscode.window.showInformationMessage('Remaining time till Theme Change: 30 minutes.');
+	});
+	
 	context.subscriptions.push(disposable);
 }
+
+
+function enable()
+{
+	setInterval(() =>
+	{
+		themeSwitch();
+	}, 2000);
+	
+}
+
+
+function themeSwitch()
+{
+	//To be written
+	var userSettings = vscode.workspace.getConfiguration();
+    //the actual extension settings
+    var extensionConfig = vscode.workspace.getConfiguration('SunflowerSeeds');
+
+
+    //Gets date Formatted
+    var date = new Date;
+	var curTime = date.getHours()*100 + date.getMinutes();
+
+
+
+
+    if(extensionConfig.sunTime ===  curTime)
+    {
+		userSettings.update("workbench.colorTheme", extensionConfig.themes[0], true);
+	}
+	
+    if(extensionConfig.moonTime ===  curTime)
+    {
+		userSettings.update("workbench.colorTheme", extensionConfig.themes[1], true);
+    }
+
+}
+
 
 // this method is called when your extension is deactivated
 export function deactivate() {}

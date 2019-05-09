@@ -10,16 +10,53 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.praiseTheSun"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.praiseTheSun",
+				"title": "SunflowerSeeds Enable"
+			},
+			{
+				"command": "extension.showRemainingTime",
+				"title": "SunflowerSeeds Show Remaining Time"
 			}
-		]
+		],
+
+		"configuration": {
+            "type": "object",
+            "title": "SunflowerSeeds",
+            "properties": 
+            {
+
+                "SunflowerSeeds.sunTime": 
+                {
+                    "type": "integer",
+                    "default": 700,
+                    "description": "Time at wich the *Day* theme will be set."
+                },
+                
+                "SunflowerSeeds.moonTime": 
+                {
+                    "type": "integer",
+                    "default": 1800,
+                    "description": "Time at wich the *Night* theme will be set."
+                },
+
+                "SunflowerSeeds.themes": 
+                {
+                    "type": "array",
+                    "default": [
+                        "Visual Studio Light",
+                        "Visual Studio Dark"
+                    ],
+                    "description": "List of themes to change periodically."
+                }
+
+            }
+        }
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
