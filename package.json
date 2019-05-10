@@ -33,25 +33,26 @@
 
                 "SunflowerSeeds.sunTime": 
                 {
-                    "type": "integer",
-                    "default": 700,
-                    "description": "Time at wich the *Day* theme will be set."
+                    "type": "string",
+                    "default": "07:00",
+                    "description": "Time at wich the Light theme will be set."
                 },
                 
                 "SunflowerSeeds.moonTime": 
                 {
-                    "type": "integer",
-                    "default": 1800,
-                    "description": "Time at wich the *Night* theme will be set."
+                    "type": "string",
+                    "default": "18:00",
+                    "description": "Time at wich the Dark theme will be set."
                 },
 
                 "SunflowerSeeds.themes": 
                 {
-                    "type": "array",
-                    "default": [
-                        "Visual Studio Light",
-                        "Visual Studio Dark"
-                    ],
+                    "type": "object",
+					"default":
+					{
+                    	"light": "Visual Studio Light",
+                        "dark": "Visual Studio Dark"
+					},
                     "description": "List of themes to change periodically."
                 }
 
