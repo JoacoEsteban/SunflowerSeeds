@@ -2,6 +2,7 @@
 	"name": "sunflowerseeds",
 	"displayName": "SunflowerSeeds",
 	"description": "Automatically changes the Theme depending on the time of day.",
+	"publisher": "JoacoEsteban",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.33.0"
